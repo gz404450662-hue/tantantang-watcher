@@ -1,0 +1,18 @@
+{
+  "name": "tantantang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "dependencies": {
+    "@types/md5": "^2.3.6",
+    "axios": "^1.13.2",
+    "md5": "^2.3.0"
+  }
+}
