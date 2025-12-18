@@ -21,9 +21,12 @@ async function bootstrap() {
   // 设置全局 API 前缀（可选，如果不想所有路由都加 /api）
   // app.setGlobalPrefix('api');
 
-  await app.listen(3000);
-  console.log(`应用运行在: http://localhost:3000`);
-  console.log(`API 地址: http://localhost:3000/api`);
+  const port = process.env.PORT || 3000;
+  const host = process.env.HOST || '0.0.0.0';
+  
+  await app.listen(port, host);
+  console.log(`应用运行在: http://${host}:${port}`);
+  console.log(`API 地址: http://${host}:${port}/api`);
   console.log(`静态文件目录: ${join(__dirname, '..', 'public')}`);
 }
 bootstrap();
