@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Delete, Body, Param, Query, Patch } from '@nestjs/common';
 import { MonitorService, CreateMonitorTaskDto, MonitorTask, DailyRecord, UpdateTargetPriceDto } from './monitor.service';
 
-@Controller('api/monitor')
+@Controller('monitor')
 export class MonitorController {
   constructor(private readonly monitorService: MonitorService) {}
 

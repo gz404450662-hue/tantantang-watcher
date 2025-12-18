@@ -1,7 +1,7 @@
 import { Controller, Get, Query, Param } from '@nestjs/common';
 import { ActivityService } from './activity.service';
 
-@Controller('api/activity')
+@Controller('activity')
 export class ActivityController {
   constructor(private readonly activityService: ActivityService) {}
 
