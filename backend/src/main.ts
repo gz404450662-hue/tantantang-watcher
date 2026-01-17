@@ -20,7 +20,7 @@ async function bootstrap() {
   });
 
   // 设置全局 API 前缀（排除根路径的SPA处理）
-  app.setGlobalPrefix('api', {
+  app.setGlobalPrefix('tantantang/api', {
     exclude: [{ path: '*', method: RequestMethod.GET }],
   });
 
@@ -29,7 +29,8 @@ async function bootstrap() {
   
   await app.listen(port, host);
   console.log(`应用运行在: http://${host}:${port}`);
-  console.log(`API 地址: http://${host}:${port}/api`);
+  console.log(`前端地址: http://${host}:${port}/tantantang/`);
+  console.log(`API 地址: http://${host}:${port}/tantantang/api`);
   console.log(`静态文件目录: ${join(__dirname, '..', 'public')}`);
 }
 bootstrap();

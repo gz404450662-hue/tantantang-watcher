@@ -5,6 +5,7 @@ import { VantResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/tantantang/',
   plugins: [
     vue(),
     Components({
@@ -14,15 +15,15 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/api': {
+      '/tantantang/api': {
         target: 'http://localhost:3000',
         changeOrigin: true,
       },
     },
   },
   build: {
-    // 打包输出到后端的 public 目录
-    outDir: resolve(__dirname, '../backend/public'),
+    // 打包输出到后端的 public/tantantang 目录
+    outDir: resolve(__dirname, '../backend/public/tantantang'),
     emptyOutDir: true, // 打包前清空目录
   },
 })
