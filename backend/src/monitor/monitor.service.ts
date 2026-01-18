@@ -391,23 +391,23 @@ export class MonitorService implements OnModuleInit {
 
     // 启动每日重置任务
     private startDailyResetTask(): void {
-        // 计算到明天凌晨的时间
+        // 计算到明天凌晨0点30分的时间
         const now = new Date();
         const tomorrow = new Date(now);
         tomorrow.setDate(tomorrow.getDate() + 1);
-        tomorrow.setHours(0, 0, 0, 0);
-        const msUntilMidnight = tomorrow.getTime() - now.getTime();
+        tomorrow.setHours(0, 30, 0, 0); // 设置为0点30分
+        const msUntilReset = tomorrow.getTime() - now.getTime();
 
-        this.logger.log(`将在 ${Math.round(msUntilMidnight / 1000 / 60)} 分钟后执行每日重置任务`);
+        this.logger.log(`将在 ${Math.round(msUntilReset / 1000 / 60)} 分钟后（凌晨0:30）执行每日重置任务`);
 
-        // 设置到明天凌晨执行
+        // 设置到明天凌晨0:30执行
         this.dailyResetTimer = setTimeout(() => {
             this.resetDailySoldOutTasks();
             // 重置后，设置每24小时执行一次
             this.dailyResetTimer = setInterval(() => {
                 this.resetDailySoldOutTasks();
             }, 24 * 60 * 60 * 1000);
-        }, msUntilMidnight);
+        }, msUntilReset);
     }
 
     // 重置昨天售罄的任务
